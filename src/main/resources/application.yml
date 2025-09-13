@@ -1,0 +1,56 @@
+spring:
+  datasource:
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/invoizo
+    password: admin
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: 'true'
+    hibernate:
+      ddl-auto: update
+      servlet:
+        multipart:
+          enabled: true
+          file-size-threshold: 2KB
+          max-file-size: 200MB
+          max-request-size: 215MB
+
+imagesPathGet: file:///tomcat/invoizo/
+imagesPathSave: /tomcat/invoizo/
+imagesPathDownload: /tomcat/invoizo/excel/
+excelImportTempPath: /tomcat/invoizo/excel/
+
+server:
+  servlet:
+    context-path: /invoizo
+  port: '1212'
+
+billing:
+  invoizo:
+    jwtSecret: ==========================================D3aiM1ZZ3v====================================================
+    jwtExpirationMs: 86400000
+    jwtRefreshExpirationMs: 86400000
+
+
+email:
+  key: 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
+emailSenderName: Loan Management System
+securityCheckURL: https://45.114.246.249/security_production
+isProduction: 'false'
+smsServiceType: 0
+runDefaultScripts: 'true'
+citizenLicenseCheck: 'false'
+citizenCountCheck: 'false'
+citizenCount: 0
+corsURLs: "*"
+accountLockTime: 120000
+supportMail : support@leadwinner.com
+websiteUrl : http://localhost:4200/#/login
+
+twilio.account.sid: ACef4c9be4771f021963d4df369e4165b0
+twilio.auth.token: cb8861aa7733bd44628dfdbe1d75c8de
+twilio.whatsapp.sender: +14155238886
