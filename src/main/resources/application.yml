@@ -36,8 +36,8 @@ billing:
     jwtRefreshExpirationMs: 86400000
 
 
-email:
-  key: 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
+#email:
+#  key: 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
 emailSenderName: Loan Management System
 securityCheckURL: https://45.114.246.249/security_production
 isProduction: 'false'
@@ -51,6 +51,3 @@ accountLockTime: 120000
 supportMail : support@leadwinner.com
 websiteUrl : http://localhost:4200/#/login
 
-twilio.account.sid: ACef4c9be4771f021963d4df369e4165b0
-twilio.auth.token: cb8861aa7733bd44628dfdbe1d75c8de
-twilio.whatsapp.sender: +14155238886
