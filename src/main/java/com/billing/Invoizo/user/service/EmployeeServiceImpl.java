@@ -4,7 +4,6 @@ import com.billing.Invoizo.InvoizoProperties;
 import com.billing.Invoizo.base.service.BaseServiceImpl;
 import com.billing.Invoizo.constants.EnumConstants;
 import com.billing.Invoizo.masters.designations.entity.DesignationsEntity;
-import com.billing.Invoizo.user.dto.EmployeeBankDetailsDTO;
 import com.billing.Invoizo.user.dto.EmployeeDTO;
 import com.billing.Invoizo.user.dto.EmployeeListDTO;
 import com.billing.Invoizo.user.dto.EmployeeViewDTO;
@@ -27,6 +26,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -36,6 +36,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class EmployeeServiceImpl extends BaseServiceImpl implements EmployeeService {
 
 
@@ -133,9 +134,6 @@ public class EmployeeServiceImpl extends BaseServiceImpl implements EmployeeServ
         employeeEntity.setHasAgreedTerms(true);
         employeeEntity.setActive(false);
         employeeEntity.setFailedAttempts(0);
-        employeeEntity.setHierarchy(employeeDTO.getHierarchy());
-        employeeEntity.setEligibleForIncentives(employeeDTO.isEligibleForIncentives());
-        employeeEntity.setMemberCode(employeeDTO.getMemberCode());
         String password = String.valueOf(otpGenerate.generate());
         employeeEntity.setPassword(passwordEncoder.encode(password));
         employeeEntity.setEmployeeId(employeeDTO.getEmployeeId());
@@ -336,25 +334,4 @@ public class EmployeeServiceImpl extends BaseServiceImpl implements EmployeeServ
         return null;
     }
 
-    @Override
-    public List<EmployeeBankDetailsDTO> getShgBankDetails(String employeeId) {
-        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<EmployeeBankDetailsDTO> query = criteriaBuilder.createQuery(EmployeeBankDetailsDTO.class);
-        Root<EmployeeBankDetailsEntity> root = query.from(EmployeeBankDetailsEntity.class);
-        List<Predicate> predicates = new ArrayList<>();
-        if (employeeId != null && !employeeId.isEmpty()) {
-            predicates.add(criteriaBuilder.equal(root.get("employeeId"), employeeId));
-        }
-        query.select(criteriaBuilder.construct(EmployeeBankDetailsDTO.class,
-                root.get("id").alias("bankdetailsid"),
-                root.get("bankName"),
-                root.get("ifscCode"),
-                root.get("branchName"),
-                root.get("accountNumber"),
-                root.get("bankBranchCode"),
-                root.get("bankCode"),
-                root.get("accountOpenDate")));
-        query.where(criteriaBuilder.and(predicates.toArray(new Predicate[0])));
-        return entityManager.createQuery(query).getResultList();
-    }
 }

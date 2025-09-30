@@ -1,7 +1,9 @@
 package com.billing.Invoizo.util;
 
 
+import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import sendinblue.ApiClient;
 import sendinblue.ApiException;
 import sendinblue.Configuration;
@@ -13,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
-//@Component("emailBroadCast")
+@Component("emailBroadCast")
 public class EmailBroadCast {
 
     //    @Value("${email.key}")

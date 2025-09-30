@@ -1,5 +1,6 @@
 package com.billing.Invoizo.security.models;
 
+import com.billing.Invoizo.user.entity.EmployeeEntity;
 import jakarta.persistence.*;
 
 import java.time.Instant;
@@ -10,9 +11,9 @@ public class RefreshToken {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-//    @OneToOne
-//    @JoinColumn(name = "employeeid", referencedColumnName = "employeeid")
-//    private EmployeeEntity employee;
+    @OneToOne
+    @JoinColumn(name = "employeeid", referencedColumnName = "employeeid")
+    private EmployeeEntity employee;
 
     @Column(nullable = false, unique = true)
     private String token;
@@ -31,13 +32,13 @@ public class RefreshToken {
         this.id = id;
     }
 
-//    public EmployeeEntity getEmployee() {
-//        return employee;
-//    }
+    public EmployeeEntity getEmployee() {
+        return employee;
+    }
 
-//    public void setEmployee(EmployeeEntity employee) {
-//        this.employee = employee;
-//    }
+    public void setEmployee(EmployeeEntity employee) {
+        this.employee = employee;
+    }
 
     public String getToken() {
         return token;

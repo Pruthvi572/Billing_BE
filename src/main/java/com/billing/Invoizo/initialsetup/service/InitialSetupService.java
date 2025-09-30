@@ -15,8 +15,6 @@ public interface InitialSetupService {
 
     List<ModulesEntity> getListOfExistingData();
 
-//    JSONObject importUlb(MultipartFile multipartFile);
-
     JSONObject checkForMasterData();
 
 }

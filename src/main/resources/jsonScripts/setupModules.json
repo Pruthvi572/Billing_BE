@@ -1,0 +1,15 @@
+[
+  {
+    "id": "1",
+    "moduleName": "MOCK_RESPONSE",
+    "isDisabled": "false",
+    "canBeDisabled": "true",
+    "constant": "MOCK_RESPONSE",
+    "moduleDescription": "Mock Response Module",
+    "moduleImage": "",
+    "hasApprovalFlow": "false",
+    "canBeDisabledFlow": "true",
+    "isApprovalFlowEnabled": "false",
+    "approvalType": "0"
+  }
+]

@@ -222,20 +222,6 @@ public class EmployeeEntity implements Serializable, UserDetails {
     @Column(name = "isactive", columnDefinition = "boolean default false")
     private boolean isActive;
 
-    @Column(name = "membercode")
-    private String memberCode;
-
-    @Column(name = "shgcode")
-    @Convert(converter = ArrayToStringConverter.class)
-    private List<String> shgCode;
-
-    @Column(name = "hierarchy", nullable = false, columnDefinition = "int default 0")
-    private int hierarchy;
-
-    @Column(name = "iseligibleforincentives", columnDefinition = "boolean default false")
-    private boolean isEligibleForIncentives;
-
-
     @OneToOne(mappedBy = "employeeEntity", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private EmployeeBankDetailsEntity employeeBankDetailsEntity;
 

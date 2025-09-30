@@ -157,25 +157,6 @@ public class InitialSetupController {
     }
 
     /**
-     * Import ulb.
-     * This API is used to upload list of ULBs from excel.
-     *
-     * @param excelFile the excel file
-     * @return the response entity
-     */
-//    @PostMapping(value = "import/ulb")
-//    public ResponseEntity<JSONObject> importUlb(@RequestPart(name = "excelFile") MultipartFile excelFile) {
-//        log.info("Finance Import Excel");
-//        try {
-//            JSONObject response = initialSetupService.importUlb(excelFile);
-//            return new ResponseEntity<>(response, HttpStatus.OK);
-//        } catch (Exception e) {
-//            log.error("Error in Importing ULB Details ", e);
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
-
-    /**
      * Check for master data.
      * This API is used to check whether all master data is entered or anything is missed.
      * It will return list of unentered master data.
@@ -188,8 +169,7 @@ public class InitialSetupController {
         try {
             return new ResponseEntity<>(initialSetupService.checkForMasterData(), HttpStatus.OK);
         } catch (Exception e) {
-            log.error("Error in Checking Master Data Availability :",
-                    e);
+            log.error("Error in Checking Master Data Availability :", e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

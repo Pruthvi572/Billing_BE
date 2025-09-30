@@ -30,7 +30,6 @@ public class DesignationPermissionEntity implements Serializable {
     @JoinColumn(name = "designationid", referencedColumnName = "id", insertable = false, updatable = false, nullable = false)
     private DesignationsEntity designationsEntity;
 
-    // Mobile - 0, Cloud - 1
     @Column(nullable = false, columnDefinition = "int default 0")
     private int type;
 
@@ -40,8 +39,6 @@ public class DesignationPermissionEntity implements Serializable {
     @Column(length = 255)
     private String module;
 
-    // Headers of Modules in Creating Designation ex.Inception,Line Estimation,
-    // Bills.
     @Column(name = "modulename", length = 255)
     private String moduleName;
 
@@ -62,6 +59,4 @@ public class DesignationPermissionEntity implements Serializable {
     @Column(name = "permissionorder", nullable = false, columnDefinition = "int default 0")
     private int permissionOrder;
 
-    @Column(name = "projectcategory", length = 255)
-    private String projectCategory;
 }

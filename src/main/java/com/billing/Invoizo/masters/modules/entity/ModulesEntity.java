@@ -87,6 +87,4 @@ public class ModulesEntity implements Serializable {
     @JsonProperty
     private boolean isApprovalFlowEnabled;
 
-    @Column(name = "approvaltype", nullable = false, columnDefinition = "int default 0")
-    private byte approvalType;
 }

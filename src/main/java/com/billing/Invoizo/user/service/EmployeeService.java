@@ -21,8 +21,5 @@ public interface EmployeeService {
 
     EmployeeViewDTO getEmployeeView(String employeeId);
 
-    void saveEmployeeBankDetails(EmployeeDTO employeeDTO, Date date, String employeeDesignationId);
-
-    List<EmployeeBankDetailsDTO> getShgBankDetails(String employeeId);
 
 }

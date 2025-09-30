@@ -22,4 +22,8 @@ public class RandomNumberGenerator {
         return (1 + rand.nextInt(9)) * 100 + rand.nextInt(100);
     }
 
+    public int generateRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(999999999);
+    }
 }
